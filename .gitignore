@@ -1,5 +1,9 @@
-# Object file
-*.o
+*.suo
+*.user
+*.sln.docstates
 
-# Ada Library Information
-*.ali
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
