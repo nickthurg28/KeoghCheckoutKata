@@ -31,13 +31,20 @@ namespace CheckoutKataTests
         }
 
         [Test]
-
         public void GivenItems_AddItemsToBasket_GetTotalPriceForItems()
         {
             basket.ScanItem(itemA);
             basket.ScanItem(itemB);
 
             Assert.AreEqual(basket.GetTotalPrice(), itemA.UnitPrice + itemB.UnitPrice);
+        }
+
+        [Test]
+        public void GivenThreeItemB_AddToBasket_PromotionAdded()
+        {
+            basket.ScanItem(itemB, 3);
+
+            Assert.AreEqual(basket.GetTotalPrice(), 40);
         }
     }
 }

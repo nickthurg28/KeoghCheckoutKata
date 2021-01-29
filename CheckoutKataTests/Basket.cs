@@ -7,6 +7,8 @@ namespace CheckoutKataTests
     {
         private List<Item> _items = new List<Item>();
 
+        private int _basketTotal = 0;
+
         public Basket()
         {
         }
@@ -16,16 +18,18 @@ namespace CheckoutKataTests
             _items.Add(item);
         }
 
+        public void ScanItem(Item item, int quantityofItem)
+        {
+            var promotion = new MultipleItemsDiscount().Promotions[item.SKU];
+            if (promotion != null && promotion.NumberOfItems == quantityofItem)
+                _basketTotal += promotion.Discount;
+            else
+                _basketTotal += new MultipleItemsDiscount().NormalPrice[item.SKU];
+        }
+
         public int GetTotalPrice()
         {
-            var basketTotal = 0;
-
-            foreach (var item in _items)
-            {
-                basketTotal = basketTotal + item.UnitPrice;
-            }
-
-            return basketTotal;
+            return _basketTotal;
         }
     }
 }
