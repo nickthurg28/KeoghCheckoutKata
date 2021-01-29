@@ -12,7 +12,8 @@ namespace CheckoutKataTests
             {
                 return new Dictionary<string, Promotion>
                 {
-                    { "B", new Promotion(3, 40) }
+                    { "B", new Promotion(3, 40) },
+                    { "D", new Promotion(2, 82)}
                 };
             }
         }

@@ -20,9 +20,10 @@ namespace CheckoutKataTests
 
         public void ScanItem(Item item, int quantityofItem)
         {
-            var promotion = new MultipleItemsDiscount().Promotions[item.SKU];
-            if (promotion != null && promotion.NumberOfItems == quantityofItem)
-                _basketTotal += promotion.Discount;
+            var promotionItems = new MultipleItemsDiscount().Promotions[item.SKU];
+
+            if (promotionItems != null && promotionItems.NumberOfItems == quantityofItem)
+                _basketTotal += promotionItems.Discount;
             else
                 _basketTotal += new MultipleItemsDiscount().NormalPrice[item.SKU];
         }

@@ -14,7 +14,12 @@ namespace CheckoutKataTests
             SKU = "B",
             UnitPrice = 15
         };
-            
+        private Item itemD = new Item() 
+        {
+            SKU = "D",
+            UnitPrice = 55
+        };
+
         private Basket basket = new Basket();
 
         [SetUp]
@@ -45,6 +50,14 @@ namespace CheckoutKataTests
             basket.ScanItem(itemB, 3);
 
             Assert.AreEqual(basket.GetTotalPrice(), 40);
+        }
+
+        [Test]
+        public void GivenTwoItemD_AddToBasket_25PercentOff()
+        {
+            basket.ScanItem(itemD, 2);
+
+            Assert.AreEqual(basket.GetTotalPrice(), 82);
         }
     }
 }
