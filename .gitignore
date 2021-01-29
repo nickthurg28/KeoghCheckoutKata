@@ -1,6 +1,7 @@
 *.suo
 *.user
 *.sln.docstates
+*.vs
 
 [Dd]ebug/
 [Rr]elease/
