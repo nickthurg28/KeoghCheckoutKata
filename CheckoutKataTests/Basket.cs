@@ -15,5 +15,17 @@ namespace CheckoutKataTests
         {
             _items.Add(item);
         }
+
+        public int GetTotalPrice()
+        {
+            var basketTotal = 0;
+
+            foreach (var item in _items)
+            {
+                basketTotal = basketTotal + item.UnitPrice;
+            }
+
+            return basketTotal;
+        }
     }
 }

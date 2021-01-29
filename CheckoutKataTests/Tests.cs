@@ -9,6 +9,11 @@ namespace CheckoutKataTests
             SKU = "A",
             UnitPrice = 10
         };
+        private Item itemB = new Item() 
+        {
+            SKU = "B",
+            UnitPrice = 15
+        };
             
         private Basket basket = new Basket();
 
@@ -23,6 +28,16 @@ namespace CheckoutKataTests
             basket.ScanItem(itemA);
 
             Assert.IsNotNull(basket);
+        }
+
+        [Test]
+
+        public void GivenItems_AddItemsToBasket_GetTotalPriceForItems()
+        {
+            basket.ScanItem(itemA);
+            basket.ScanItem(itemB);
+
+            Assert.AreEqual(basket.GetTotalPrice(), itemA.UnitPrice + itemB.UnitPrice);
         }
     }
 }
