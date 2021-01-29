@@ -4,6 +4,14 @@ namespace CheckoutKataTests
 {
     public class Tests
     {
+        private Item itemA = new Item()
+        {
+            SKU = "A",
+            UnitPrice = 10
+        };
+            
+        private Basket basket = new Basket();
+
         [SetUp]
         public void Setup()
         {
@@ -12,14 +20,7 @@ namespace CheckoutKataTests
         [Test]
         public void GivenAnItem_AddToBasket_BasketHasItem()
         {
-            var item = new Item()
-            { 
-                SKU = "A",
-                UnitPrice = 10
-            };
-
-            var basket = new Basket();
-            basket.ScanItem(item);
+            basket.ScanItem(itemA);
 
             Assert.IsNotNull(basket);
         }
