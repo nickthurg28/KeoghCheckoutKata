@@ -19,10 +19,10 @@ namespace CheckoutKataTests
         [Test]
         public void GivenItems_AddItemsToBasket_GetTotalPriceForItems()
         {
-            basket.ScanItem(testFixtures.itemA);
-            basket.ScanItem(testFixtures.itemB);
+            basket.ScanItem(testFixtures.itemA, 1);
+            basket.ScanItem(testFixtures.itemA, 1);
 
-            Assert.AreEqual(basket.GetTotalPrice(), testFixtures.itemA.UnitPrice + testFixtures.itemB.UnitPrice);
+            Assert.AreEqual(basket.GetTotalPrice(), testFixtures.itemA.UnitPrice + testFixtures.itemA.UnitPrice);
         }
 
         [Test]
